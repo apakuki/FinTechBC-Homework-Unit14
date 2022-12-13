@@ -37,8 +37,11 @@ The data for this exercise was imported without any issues. I was then able to g
 I chose to tune the Baseline by increasing the training window size to 6 months and 12 months, and also by reducing the long window size to 20. The best result was obtained when the training window was at 6 months and the long window size remained unchanged at 100 days. The comparison of results can be seen in the following plots: 
 
 [Baseline 20 day long window](Starter_Code/Resources/Baseline_long_window20.png)
+
 [Baseline training end 6 months](Starter_Code/Resources/Baseline_training_end_6months.png)
+
 [Baseline training end 12 months](Starter_Code/Resources/Baseline_training_end_12months.png)
+
 [Unit 14 homework files](Starter_Code/Starter_Code.zip)
 
 * Evaluate a New Machine Learning Classifier
@@ -48,6 +51,7 @@ I chose two Machine Learning Classifiers to compare results, the first being Log
 The comparison of the two Machine Learning Classifiers can be seen here:
 
 [Logistic Regression](Starter_Code/Resources/Baseline_against_LR.png)
+
 [AdaBoost](Starter_Code/Resources/Baseline_against_AdaBoost.png)
 
 
