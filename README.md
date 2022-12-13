@@ -24,83 +24,32 @@ In a Jupyter notebook, you’ll do the following:
 
 As part of your GitHub repository’s `README.md` file, you will also create a report that compares the performance of the machine learning models based on the trading predictions that each makes and the resulting cumulative strategy returns.
 
-## Files
-
-Download the following files to help you get started:
-
-[Unit 14 homework files](Starter_Code/Starter_Code.zip)
-
-> **Note:** The provided CSV file contains OHLCV data for an MSCI&ndash;based emerging markets ETF that [iShares](https://www.ishares.com/us/products/268704/ishares-currency-hedged-msci-emerging-markets) issued. Investments in emerging markets make up an important aspect of a well-diversified investment portfolio. This is because the included equities have potentially higher long-term returns, even though they carry more risk.
-
-## Instructions
-
-Use the starter code file to complete the steps that the instructions outline. The steps for this Challenge are divided into the following sections:
+## EVALUATION REPORT
 
 * Establish a Baseline Performance
 
+The data for this exercise was imported without any issues. I was then able to generate trading signals using short- and long-window SMA values of 20 and 100 respectively. Next, I split the data into training and testing datasets, with a training dataset size of the first 3 months of the complete datatset. The `SVC` classifier model was then used to fit the training data and make predictions based on the testing data. Following that I created a predictions DataFrame that contained columns for “Predicted” values, “Actual Returns”, and “Strategy Returns”. This was used to generate a cumulative return plot that showed the actual returns vs. the strategy returns. A copy of this plot can be found here:
+
+[Baseline](Starter_Code/Resources/Baseline.png)
+
 * Tune the Baseline Trading Algorithm
+
+I chose to tune the Baseline by increasing the training window size to 6 months and 12 months, and also by reducing the long window size to 20. The best result was obtained when the training window was at 6 months and the long window size remained unchanged at 100 days. The comparison of results can be seen in the following plots: 
+
+[Baseline 20 day long window](Starter_Code/Resources/Baseline_long_window20.png)
+[Baseline training end 6 months](Starter_Code/Resources/Baseline_training_end_6months.png)
+[Baseline training end 12 months](Starter_Code/Resources/Baseline_training_end_12months.png)
+[Unit 14 homework files](Starter_Code/Starter_Code.zip)
 
 * Evaluate a New Machine Learning Classifier
 
-* Create an Evaluation Report
+I chose two Machine Learning Classifiers to compare results, the first being Logistic Regression and the second being AdaBoost Classifier. Although AdaBoost improved accuracy from 53% to 86%, neither was able to outperform the results from extending the training window to 6 months. This of course based on the dataset given.
 
-### Establish a Baseline Performance
+The comparison of the two Machine Learning Classifiers can be seen here:
 
-In this section, you’ll run the provided starter code to establish a baseline performance for the trading algorithm. To do so, complete the following steps.
+[Logistic Regression](Starter_Code/Resources/Baseline_against_LR.png)
+[AdaBoost](Starter_Code/Resources/Baseline_against_AdaBoost.png)
 
-Open the Jupyter notebook. Restart the kernel, run the provided cells that correspond with the first three steps, and then proceed to step four.
-
-1. Import the OHLCV dataset into a Pandas DataFrame.
-
-2. Generate trading signals using short- and long-window SMA values.
-
-3. Split the data into training and testing datasets.
-
-4. Use the `SVC` classifier model from SKLearn's support vector machine (SVM) learning method to fit the training data and make predictions based on the testing data. Review the predictions.
-
-5. Review the classification report associated with the `SVC` model predictions.
-
-6. Create a predictions DataFrame that contains columns for “Predicted” values, “Actual Returns”, and “Strategy Returns”.
-
-7. Create a cumulative return plot that shows the actual returns vs. the strategy returns. Save a PNG image of this plot. This will serve as a baseline against which to compare the effects of tuning the trading algorithm.
-
-8. Write your conclusions about the performance of the baseline trading algorithm in the `README.md` file that’s associated with your GitHub repository. Support your findings by using the PNG image that you saved in the previous step.
-
-### Tune the Baseline Trading Algorithm
-
-In this section, you’ll tune, or adjust, the model’s input features to find the parameters that result in the best trading outcomes. (You’ll choose the best by comparing the cumulative products of the strategy returns.) To do so, complete the following steps:
-
-1. Tune the training algorithm by adjusting the size of the training dataset. To do so, slice your data into different periods. Rerun the notebook with the updated parameters, and record the results in your `README.md` file. Answer the following question: What impact resulted from increasing or decreasing the training window?
-
-    > **Hint** To adjust the size of the training dataset, you can use a different `DateOffset` value&mdash;for example, six months. Be aware that changing the size of the training dataset also affects the size of the testing dataset.
-
-2. Tune the trading algorithm by adjusting the SMA input features. Adjust one or both of the windows for the algorithm. Rerun the notebook with the updated parameters, and record the results in your `README.md` file. Answer the following question: What impact resulted from increasing or decreasing either or both of the SMA windows?
-
-3. Choose the set of parameters that best improved the trading algorithm returns. Save a PNG image of the cumulative product of the actual returns vs. the strategy returns, and document your conclusion in your `README.md` file.
-
-### Evaluate a New Machine Learning Classifier
-
-In this section, you’ll use the original parameters that the starter code provided. But, you’ll apply them to the performance of a second machine learning model. To do so, complete the following steps:
-
-1. Import a new classifier, such as `AdaBoost`, `DecisionTreeClassifier`, or `LogisticRegression`. (For the full list of classifiers, refer to the [Supervised learning page](https://scikit-learn.org/stable/supervised_learning.html) in the scikit-learn documentation.)
-
-2. Using the original training data as the baseline model, fit another model with the new classifier.
-
-3. Backtest the new model to evaluate its performance. Save a PNG image of the cumulative product of the actual returns vs. the strategy returns for this updated trading algorithm, and write your conclusions in your `README.md` file. Answer the following questions: Did this new model perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?
-
-### Create an Evaluation Report
-
-In the previous sections, you updated your `README.md` file with your conclusions. To accomplish this section, you need to add a summary evaluation report at the end of the `README.md` file. For this report, express your final conclusions and analysis. Support your findings by using the PNG images that you created.
-
----
-
-## Submission
-
-* Use the started code provided to create the machine learning trading bot and host the notebook and the required files.
-
-* Include a `README.md` file with your conclusions as requested.
-
-* Submit the link to your GitHub project to Bootcamp Spot.
 
 ---
 
