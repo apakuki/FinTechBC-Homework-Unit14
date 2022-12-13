@@ -26,7 +26,7 @@ As part of your GitHub repository’s `README.md` file, you will also create a r
 
 ## EVALUATION REPORT
 
-* Establish a Baseline Performance
+### Establish a Baseline Performance
 
 The data for this exercise was imported without any issues. I was then able to generate trading signals using short- and long-window SMA values of 20 and 100 respectively. Next, I split the data into training and testing datasets, with a training dataset size of the first 3 months of the complete datatset. The `SVC` classifier model was then used to fit the training data and make predictions based on the testing data. Following that I created a predictions DataFrame that contained columns for “Predicted” values, “Actual Returns”, and “Strategy Returns”. This was used to generate a cumulative return plot that showed the actual returns vs. the strategy returns. A copy of this plot can be found here:
 
@@ -42,7 +42,6 @@ I chose to tune the Baseline by increasing the training window size to 6 months 
 
 [Baseline training end 12 months](Starter_Code/Resources/Baseline_training_end_12months.png)
 
-[Unit 14 homework files](Starter_Code/Starter_Code.zip)
 
 * Evaluate a New Machine Learning Classifier
 
